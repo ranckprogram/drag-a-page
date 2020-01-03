@@ -1,5 +1,7 @@
 import * as React from 'react';
 import './App.css';
+import Menu from './plugins/Menu';
+import DesignPanel from './plugins/DesignPanel'
 
 const ableUseConfig = [{
   name: '图片',
@@ -13,17 +15,18 @@ const ableUseConfig = [{
 }]
 
 function App() {
-
   return (
     <div className="content">
       <div className="elementList">
         {
           ableUseConfig.map(item =>
-            <div className="menu" key={item.type}>{item.name}</div>
+            <Menu.MenuItem current={item} key={item.type}>{item.name}</Menu.MenuItem>
           )
         }
       </div>
-      <div className="designCenter">2</div>
+      <div className="designCenter">
+        <DesignPanel />
+      </div>
       <div className="paramsList">2</div>
     </div>
   )
